@@ -18,3 +18,18 @@ function responsive_control() {
     x.className = "topnav";
   }
 }
+
+function setActiveClass() {
+  const navLinks = document.querySelectorAll('.topnav a');
+  const currentPage = window.location.pathname.split('/').pop();
+
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+}
+
+window.onload = setActiveClass;
